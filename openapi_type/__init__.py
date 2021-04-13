@@ -16,6 +16,7 @@ __all__ = ('parse_spec', 'serialize_spec', 'OpenAPI')
 class IntegerValue(NamedTuple):
     type: Literal['integer']
     format: str = ''
+    description: str = ''
     example: Optional[int] = None
     default: Optional[int] = None
     minimum: Optional[int] = None
@@ -25,6 +26,7 @@ class IntegerValue(NamedTuple):
 class FloatValue(NamedTuple):
     type: Literal['number']
     format: str = ''
+    description: str = ''
     example: Optional[float] = None
     default: Optional[float] = None
 
@@ -42,6 +44,7 @@ class StringValue(NamedTuple):
 class BooleanValue(NamedTuple):
     type: Literal['boolean']
     default: Optional[bool] = None
+    description: str = ''
 
 
 class Reference(NamedTuple):
@@ -57,6 +60,7 @@ class ObjectWithAdditionalProperties(NamedTuple):
     """
     type: Literal['object']
     additional_properties: Union[None, bool, 'SchemaType'] = None  # type: ignore
+    description: str = ''
 
 
 class ArrayValue(NamedTuple):
